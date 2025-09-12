@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ProjectList from "./components/project-list";
+import ProjectList from "./components/page";
 import ProjectListLoading from "./components/project-list-loading";
 
 export default async function ProjectsPage() {
