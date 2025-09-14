@@ -1,14 +1,12 @@
+import fs from 'fs';
+import path from 'path';
+
 export default async function ProjectList() {
-  // Use relative URL in production, fallback to local json-server in development
-  const apiUrl = process.env.NODE_ENV === 'production' 
-    ? '/api/repos'  // Use relative URL in production
-    : 'http://localhost:3001/repos';  // Use json-server in development
-    
-  const response = await fetch(
-    apiUrl,
-    { cache: 'no-store' }
-  )
-  const repos = await response.json()
+  // Read data directly from db.json during build time
+  const filePath = path.join(process.cwd(), 'db.json');
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const data = JSON.parse(fileContents);
+  const repos = data.repos;
 
   return (
     <ul>
