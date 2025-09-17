@@ -1,0 +1,39 @@
+.link {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0;
+  display: inline-block;
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.active {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Force colors for light/dark mode */
+:global(.light) .link {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+:global(.light) .link:hover,
+:global(.light) .active {
+  color: rgba(0, 0, 0, 1);
+}
+
+:global(.light) .active {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .link {
+    display: block;
+    padding: 0.75rem 0;
+  }
+}

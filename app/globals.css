@@ -2,26 +2,202 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base theme variables */
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Dark theme variables */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 16, 20, 35;
+}
+
+/* Apply theme colors to body */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  overflow-x: hidden;
+}
+
+/* Clear rules for light mode links and text */
+body.light a {
+  color: #000;
+}
+
+body.light p, 
+body.light h1, 
+body.light h2, 
+body.light h3, 
+body.light h4, 
+body.light h5, 
+body.light h6 {
+  color: #000;
+}
+
+/* Clear rules for dark mode links and text */
+body.dark a {
+  color: #fff;
+}
+
+body.dark p, 
+body.dark h1, 
+body.dark h2, 
+body.dark h3, 
+body.dark h4, 
+body.dark h5, 
+body.dark h6 {
+  color: #fff;
+}
+
+/* Navigation specific styles */
+.nav-link {
+  color: #000 !important;
+}
+
+.dark .nav-link {
+  color: #fff !important;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.light .nav-link:hover {
+  color: #333 !important;
+}
+
+.dark .nav-link:hover {
+  color: #ccc !important;
+}
+
+/* Site title */
+.site-title {
+  color: #000 !important;
+}
+
+.dark .site-title {
+  color: #fff !important;
+}
+
+/* Menu icon */
+.menu-icon {
+  color: #000 !important;
+}
+
+.dark .menu-icon {
+  color: #fff !important;
+}
+
+/* Repository card styles */
+.repo-title {
+  color: #000 !important;
+}
+
+.dark .repo-title {
+  color: #fff !important;
+}
+
+.repo-description {
+  color: #333 !important;
+}
+
+.dark .repo-description {
+  color: #ccc !important;
+}
+
+.star-count {
+  color: #000 !important;
+}
+
+.dark .star-count {
+  color: #fff !important;
+}
+
+/* Blog specific styles */
+.blog-post-link {
+  color: #000 !important;
+  transition: color 0.2s;
+}
+
+.dark .blog-post-link {
+  color: #fff !important;
+}
+
+.blog-post-link:hover {
+  color: #666 !important;
+  text-decoration: underline;
+}
+
+.dark .blog-post-link:hover {
+  color: #ccc !important;
+}
+
+.blog-sort-link {
+  color: #000 !important;
+  font-weight: 500;
+}
+
+.dark .blog-sort-link {
+  color: #fff !important;
+}
+
+.blog-sort-link:hover {
+  color: #666 !important;
+}
+
+.dark .blog-sort-link:hover {
+  color: #ccc !important;
+}
+
+.blog-date {
+  color: #666;
+}
+
+.dark .blog-date {
+  color: #aaa;
+}
+
+/* Custom responsive adjustments */
+@media (max-width: 640px) {
+  .prose {
+    font-size: 0.95rem;
+  }
+  
+  .prose h2 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.2rem;
+  }
+  
+  /* Smaller padding for mobile */
+  .p-4 {
+    padding: 0.9rem;
+  }
+  
+  /* Adjust font sizes on mobile */
+  .text-xl {
+    font-size: 1.15rem;
+    line-height: 1.6;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Improve table display on mobile */
+@media (max-width: 768px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  /* Better spacing for mobile */
+  .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+  }
 }
