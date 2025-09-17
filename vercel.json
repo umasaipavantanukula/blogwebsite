@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "next build",
+  "buildCommand": "NODE_OPTIONS='--max-old-space-size=4096' next build",
   "framework": "nextjs",
   "nodeVersion": "22.x"
 }
