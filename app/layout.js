@@ -19,14 +19,14 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  // Get server-side dark mode but always default to dark for initial render
-  const theme = useServerDarkMode() || 'dark'
+  // Get server-side dark mode but default to system preference
+  const theme = useServerDarkMode() || 'system'
   return (
-    <html lang="en" className={theme}>
+    <html lang="en" className={theme} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${roboto.className} min-h-screen`}>
+      <body className={`${roboto.className} min-h-screen font-sans antialiased`}>
         <Providers>
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <Header />

@@ -6,12 +6,20 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --link-color: #0066cc;
+  --link-hover: #004499;
 }
 
 /* Dark theme variables */
 .dark {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 16, 20, 35;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --link-color: #5e9eff;
+  --link-hover: #7eb2ff;
 }
 
 /* Apply theme colors to body */
@@ -117,21 +125,22 @@ body.dark h6 {
 
 /* Blog specific styles */
 .blog-post-link {
-  color: #000 !important;
+  color: var(--link-color) !important;
   transition: color 0.2s;
+  font-weight: 500;
 }
 
 .dark .blog-post-link {
-  color: #fff !important;
+  color: var(--link-color) !important;
 }
 
 .blog-post-link:hover {
-  color: #666 !important;
+  color: var(--link-hover) !important;
   text-decoration: underline;
 }
 
 .dark .blog-post-link:hover {
-  color: #ccc !important;
+  color: var(--link-hover) !important;
 }
 
 .blog-sort-link {
@@ -157,6 +166,46 @@ body.dark h6 {
 
 .dark .blog-date {
   color: #aaa;
+}
+
+/* Enhanced prose styling for better readability */
+.prose {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.prose a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--link-hover);
+}
+
+.prose code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.dark .prose code {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Custom responsive adjustments */
