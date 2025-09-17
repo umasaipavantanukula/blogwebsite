@@ -3,14 +3,14 @@ const nextConfig = {
   // Minimal config to avoid memory issues
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
-  // Use export instead of standalone
-  output: "export",
+  // Use server mode instead of export to allow dynamic features
+  output: "standalone",
   // Turn off tracing completely to avoid stack overflow
   distDir: '.next',
-  // No automatic static optimization for now
+  // Add a dynamic route exclusion for the blog page
   experimental: {
-    disableStaticImages: true,
-    appDocumentPreloading: false,
+    // Allow server-side rendering instead of static export for some pages
+    appDocumentPreloading: false
   },
   // Handle react-cookie fallback
   webpack: (config) => {

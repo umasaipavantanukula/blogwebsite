@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node build.js",
-    "vercel-build": "node build.js",
+    "build": "cross-env NEXT_DISABLE_FILE_TRACING=true node build.js",
+    "vercel-build": "cross-env NEXT_DISABLE_FILE_TRACING=true node build.js",
     "start": "next start",
     "lint": "next lint",
     "json-server": "json-server --delay=5000 --watch db.json --port 3001"

@@ -1,6 +1,5 @@
 {
   "version": 2,
   "buildCommand": "node build.js",
-  "framework": "nextjs",
-  "outputDirectory": ".next/export"
+  "framework": "nextjs"
 }
