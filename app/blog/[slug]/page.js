@@ -33,7 +33,7 @@ export default async function BlogPage({ params }) {
   return (
     <article className="prose dark:prose-invert max-w-4xl mx-auto">
       <div className="mb-6">
-        <Link href="/blog" className="blog-sort-link inline-flex items-center">
+        <Link href="/Blog" className="blog-sort-link inline-flex items-center">
           <span className="mr-2">←</span> Back to all posts
         </Link>
       </div>
@@ -46,7 +46,7 @@ export default async function BlogPage({ params }) {
         {post.frontmatter.tags.map(tag => (
           <Link 
             key={tag} 
-            href={`/blog/?tags=${tag}`} 
+            href={`/Blog/?tags=${tag}`} 
             className="text-sm px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           >
             #{tag}
