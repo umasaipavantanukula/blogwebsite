@@ -1,14 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Disable source maps in production to reduce memory usage
+  // Minimal config to avoid memory issues
   productionBrowserSourceMaps: false,
-  // Disable powered by header
   poweredByHeader: false,
-  // Use standalone output for more reliable builds
-  output: "standalone",
-  // Additional optimization options
-  swcMinify: true,
-  reactStrictMode: true,
+  // Use export instead of standalone
+  output: "export",
+  // Turn off tracing completely to avoid stack overflow
+  distDir: '.next',
+  // No automatic static optimization for now
+  experimental: {
+    disableStaticImages: true,
+    appDocumentPreloading: false,
+  },
   // Handle react-cookie fallback
   webpack: (config) => {
     config.resolve.fallback = { 

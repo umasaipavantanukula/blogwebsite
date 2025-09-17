@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
-    "vercel-build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "build": "node build.js",
+    "vercel-build": "node build.js",
     "start": "next start",
     "lint": "next lint",
     "json-server": "json-server --delay=5000 --watch db.json --port 3001"
