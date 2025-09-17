@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
  "engines": {
-  "node": "22.x"
-},
-  
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "cross-env NEXT_DISABLE_FILE_TRACING=true node build.js",
