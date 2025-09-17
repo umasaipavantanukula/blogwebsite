@@ -1,7 +1,7 @@
 'use client'
 
-import { CookiesProvider } from 'react-cookie'
+import { ThemeProvider } from 'next-themes'
 
 export default function Providers({ children }) {
-  return <CookiesProvider>{children}</CookiesProvider>
+  return <ThemeProvider attribute="class" defaultTheme="dark">{children}</ThemeProvider>
 }

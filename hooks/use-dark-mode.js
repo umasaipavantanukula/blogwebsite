@@ -1,21 +1,27 @@
-import { useState } from 'react'
-import { useCookies } from 'react-cookie'
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 
 const useDarkMode = (defaultTheme = 'dark') => {
-  const [theme, setTheme] = useState(defaultTheme)
-  const [_, setCookie] = useCookies(['theme'])
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  
+  // Use useEffect to ensure code runs only on client-side
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-  const setAndSaveTheme = (theme) => {
-    setTheme(theme)
-    document.documentElement.classList.remove('light', 'dark')
-    document.documentElement.classList.add(theme)
-    setCookie('theme', theme)
-  }
   const toggleTheme = () => {
-    setAndSaveTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
-  return { theme, toggleTheme }
+  // Return the current theme and the toggle function
+  // When not mounted yet, return the default theme to avoid hydration mismatch
+  return { 
+    theme: mounted ? theme : defaultTheme, 
+    toggleTheme 
+  }
 }
 
 export default useDarkMode
