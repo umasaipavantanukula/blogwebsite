@@ -7,10 +7,15 @@ const nextConfig = {
   output: "standalone",
   // Turn off tracing completely to avoid stack overflow
   distDir: '.next',
-  // Add a dynamic route exclusion for the blog page
+  // Disable tracing by setting no traced entries
   experimental: {
     // Allow server-side rendering instead of static export for some pages
-    appDocumentPreloading: false
+    appDocumentPreloading: false,
+    // Completely skip tracing to fix stack overflow
+    outputFileTracingIgnores: ['**/*'],
+    outputFileTracingExcludes: {
+      '*': ['**/*']
+    }
   },
   // Handle react-cookie fallback
   webpack: (config) => {
