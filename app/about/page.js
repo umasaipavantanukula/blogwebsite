@@ -11,7 +11,7 @@ export default function AboutPage() {
       
       <div className="prose prose-lg dark:prose-invert">
         <p>
-          Hi there! I'm a passionate web developer with expertise in modern frontend and backend technologies.
+          Hi there! I&apos;m a passionate web developer with expertise in modern frontend and backend technologies.
         </p>
 
         <h2>My Background</h2>
@@ -30,8 +30,8 @@ export default function AboutPage() {
 
         <h2>Interests</h2>
         <p>
-          When I'm not coding, I enjoy photography, reading tech blogs, and contributing to open-source projects.
-          I'm particularly interested in web performance optimization and modern JavaScript frameworks.
+          When I&apos;m not coding, I enjoy photography, reading tech blogs, and contributing to open-source projects.
+          I&apos;m particularly interested in web performance optimization and modern JavaScript frameworks.
         </p>
       </div>
     </>
