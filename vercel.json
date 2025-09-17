@@ -1,16 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "nodeVersion": "22.x",
-        "buildCommand": "next build"
-      }
-    }
-  ],
-  "github": {
-    "silent": true
-  }
+  "buildCommand": "next build",
+  "framework": "nextjs",
+  "nodeVersion": "22.x"
 }
