@@ -3,26 +3,32 @@ const nextConfig = {
   // Minimal config to avoid memory issues
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
-  // Use server mode instead of export to allow dynamic features
+  // Use standalone output for better performance
   output: "standalone",
-  // Turn off tracing completely to avoid stack overflow
+  // Custom dist directory
   distDir: '.next',
-  // Disable tracing by setting no traced entries
+  // Experimental features
   experimental: {
-    // Allow server-side rendering instead of static export for some pages
+    // Disable app document preloading for better performance
     appDocumentPreloading: false,
-    // Completely skip tracing to fix stack overflow
-    outputFileTracingIgnores: ['**/*'],
+    // Skip file tracing to prevent stack overflow issues
     outputFileTracingExcludes: {
-      '*': ['**/*']
+      '*': ['node_modules/@swc/core-linux-x64-gnu', 'node_modules/@swc/core-linux-x64-musl', '.next/cache/**/*']
     }
   },
-  // Handle react-cookie fallback
-  webpack: (config) => {
+  // Webpack optimizations
+  webpack: (config, { isServer }) => {
+    // Reduce bundle size by excluding unnecessary fallbacks
     config.resolve.fallback = { 
       ...config.resolve.fallback,
       "react-cookie": false 
     };
+    
+    // Optimize server-side rendering
+    if (isServer) {
+      config.cache = false;
+    }
+    
     return config;
   }
 }
