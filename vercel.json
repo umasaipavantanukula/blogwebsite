@@ -1,12 +1,4 @@
 {
   "version": 2,
-  "buildCommand": "cross-env NEXT_DISABLE_FILE_TRACING=true NODE_OPTIONS='--max-old-space-size=8192' node build.js",
-  "installCommand": "npm install",
-  "framework": "nextjs",
-  "regions": ["iad1"],
-  "env": {
-    "NEXT_DISABLE_FILE_TRACING": "true",
-    "NEXT_TELEMETRY_DISABLED": "1",
-    "NODE_OPTIONS": "--max-old-space-size=8192 --no-warnings"
-  }
+  "framework": "nextjs"
 }

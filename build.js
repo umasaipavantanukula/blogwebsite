@@ -1,32 +1,11 @@
-// build.js - Custom build script to bypass tracing issues
+// build.js - Simple build script
 const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
 
-// Set higher memory limit and forcefully disable tracing
-process.env.NODE_OPTIONS = '--max-old-space-size=8192 --no-warnings';
-process.env.NEXT_DISABLE_FILE_TRACING = 'true';
-
-console.log('Starting custom build process...');
+console.log('Starting Next.js build...');
 
 try {
-  // Use a two-step build process to completely avoid tracing
-  // First build the application
-  console.log('Building Next.js application...');
-  execSync('npx next build', {
-    stdio: 'inherit',
-    env: {
-      ...process.env,
-      NEXT_TELEMETRY_DISABLED: '1',
-      NEXT_DISABLE_FILE_TRACING: 'true',
-      // Add force exit to prevent hanging
-      NODE_OPTIONS: '--max-old-space-size=8192 --no-warnings'
-    }
-  });
-
-  // Use a hacky approach to skip the tracing step
-  console.log('Build completed. Skipping tracing step...');
-  
+  // Simple Next.js build without any custom environment variables
+  execSync('next build', { stdio: 'inherit' });
   console.log('Build completed successfully!');
 } catch (error) {
   console.error('Build failed:', error);
